@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+    <!--
+    <bean id="securityLogin" class="org.apache.camel.component.servlet.osgi.OsgiServletRegisterer"
+          init-method="register"
+          destroy-method="unregister">
+        <property name="alias" value="/camel/login"/>
+        <property name="httpService" ref="httpService"/>
+        <property name="servlet" ref="loginCamelServlet"/>
+        <property name="servletName" value="securityLoginServlet"/>
+    </bean>
+-->
+    <bean id="loginCamelServlet" class="com.kalix.fabric8.security.web.LoginCamelServlet">
+        <property name="securityService" ref="securityService"/>
+    </bean>
+
+    <service interface="javax.servlet.Servlet" ref="loginCamelServlet">
+        <service-properties>
+            <entry key="alias" value="/camel/login" />
+            <entry key="matchOnUriPrefix" value="true" />
+            <entry key="servlet-name" value="securityLoginServlet"/>
+        </service-properties>
+    </service>
+
+</blueprint>

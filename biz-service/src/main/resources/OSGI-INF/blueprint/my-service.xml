@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.5.0"
+        default-activation="eager"
+        xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+        xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <ext:property-placeholder evaluator="fabric8"/>
+    <!--<cm:property-placeholder persistent-id="ConfigRedis">-->
+        <!--<cm:default-properties>-->
+            <!--<cm:property name="serviceName" value="localhost"/>-->
+            <!--<cm:property name="port" value="6379"/>-->
+            <!--<cm:property name="expire" value="600"/>-->
+            <!--&lt;!&ndash;<cm:property name="jndiName" value="leaderboard"/>&ndash;&gt;-->
+        <!--</cm:default-properties>-->
+    <!--</cm:property-placeholder>-->
+
+    <!--oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)-->
+    <bean id="serviceBean" class="com.kalix.fabric8.redis.MyServiceImpl" init-method="init">
+        <property name="serviceName" value="${k8s:map:myconfig/example.property.1}"/>
+        <!--<property name="serviceName" value="${service.host:MYSQL_SERVICE_NAME}/${service.port:MYSQL_SERVICE_NAME}"/>-->
+        <!--<property name="secretValue" value="${k8s:secret:test-secret/username}"/>-->
+        <property name="url" value="jdbc:mysql://${env+service:MYSQL_SERVICE_NAME}/${env:MYSQL_SERVICE_DATABASE}"/>
+    </bean>
+
+    <service ref="serviceBean" interface="com.kalix.fabric8.redis.MyService"/>
+
+</blueprint>

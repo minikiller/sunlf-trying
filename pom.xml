@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.kalix</groupId>
+        <artifactId>kalix-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <groupId>com.kalix.fabric8</groupId>
+    <artifactId>trying</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.trying.version>1.0.1-SNAPSHOT</project.trying.version>
+        <fabric8.version>3.0.11</fabric8.version>
+        <fabric8.maven.plugin.version>3.5.38</fabric8.maven.plugin.version>
+        <karaf.version>4.2.0</karaf.version>
+        <camel.version>2.21.1</camel.version>
+        <!---->
+        <karaf.path>d:/java-develop/tools/apache-karaf-4.2.0-ms</karaf.path>
+    </properties>
+
+    <modules>
+        <!--<module>biz-service</module>-->
+        <module>biz-feature</module>
+        <module>biz-etc</module>
+        <module>ms-feature</module>
+        <module>microservice-parent</module>
+        <!--<module>redis-service</module>-->
+        <!--<module>news-parent</module>-->
+        <!--<module>biz-assembly</module>-->
+    </modules>
+
+    <repositories>
+        <!--
+        <repository>
+            <id>remote-nexus</id>
+            <url>http://nexus.apps.bogon.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>snapshot-nexus</id>
+            <url>http://nexus.apps.bogon.com/nexus/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+        -->
+        <!-- Apache ServiceMix repository (for region) -->
+        <repository>
+            <id>apache.servicemix.m2</id>
+            <name>Apache ServiceMix M2 repository</name>
+            <url>http://svn.apache.org/repos/asf/servicemix/m2-repo</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <!-- OPS4J SNAPSHOT repository -->
+        <repository>
+            <id>ops4j.sonatype.snapshots.deploy</id>
+            <name>OPS4J snapshot repository</name>
+            <url>https://oss.sonatype.org/content/repositories/ops4j-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <!-- Apache SNAPSHOT -->
+        <repository>
+            <id>apache.snapshots.deploy</id>
+            <name>Apache snapshot repository</name>
+            <url>https://repository.apache.org/content/groups/snapshots-group</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>

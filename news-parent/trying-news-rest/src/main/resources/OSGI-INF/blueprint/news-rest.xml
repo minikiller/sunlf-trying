@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="
+             http://www.osgi.org/xmlns/blueprint/v1.0.0 https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+             http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+    <!-- to setup camel servlet with OSGi HttpService -->
+    <!--<reference id="httpService" interface="org.osgi.service.http.HttpService"/>-->
+
+    <!--<bean class="org.apache.camel.component.servlet.osgi.OsgiServletRegisterer"-->
+    <!--init-method="register"-->
+    <!--destroy-method="unregister">-->
+    <!--<property name="alias" value="/camel/rest"/>-->
+    <!--<property name="httpService" ref="httpService"/>-->
+    <!--<property name="servlet" ref="camelServlet"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="camelServlet" class="org.apache.camel.component.servlet.CamelHttpTransportServlet"/>-->
+
+    <reference id="newsService" interface="com.kalix.trying.news.api.biz.INewsBeanService"/>
+
+    <bean id="newsRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.trying.news.entities.NewsBean"/>
+    </bean>
+    <camelContext id="newsCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="newsRoute"/>
+
+    </camelContext>
+</blueprint>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--<parent>-->
+        <!--<groupId>com.kalix.trying.news</groupId>-->
+        <!--<artifactId>news-parent</artifactId>-->
+        <!--<version>1.0.1-SNAPSHOT</version>-->
+    <!--</parent>-->
+
+    <!--
+      Licensed to the Apache Software Foundation (ASF) under one or more
+      contributor license agreements.  See the NOTICE file distributed with
+      this work for additional information regarding copyright ownership.
+      The ASF licenses this file to You under the Apache License, Version 2.0
+      (the "License"); you may not use this file except in compliance with
+      the License.  You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+    -->
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.kalix.trying.news</groupId>
+    <!--<artifactId>news-parent</artifactId>-->
+    <version>1.0.1-SNAPSHOT</version>
+    <artifactId>trying-news-assembly</artifactId>
+    <packaging>karaf-assembly</packaging>
+
+    <name>Trying News Assembly</name>
+    <description>biz-assembly details</description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.trying.version>1.0.1-SNAPSHOT</project.trying.version>
+        <fabric8.version>3.0.11</fabric8.version>
+        <fabric8.maven.plugin.version>3.5.38</fabric8.maven.plugin.version>
+        <karaf.version>4.2.0</karaf.version>
+        <camel.version>2.21.1</camel.version>
+        <!--<camel.version>2.18.2</camel.version>-->
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>framework</artifactId>
+            <version>${karaf.version}</version>
+            <type>kar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>standard</artifactId>
+            <version>${karaf.version}</version>
+            <classifier>features</classifier>
+            <type>xml</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>spring</artifactId>
+            <version>${karaf.version}</version>
+            <classifier>features</classifier>
+            <type>xml</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>enterprise</artifactId>
+            <version>${karaf.version}</version>
+            <classifier>features</classifier>
+            <type>xml</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.fabric8</groupId>
+            <artifactId>fabric8-karaf-features</artifactId>
+            <version>${fabric8.version}</version>
+            <classifier>features</classifier>
+            <type>xml</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel.karaf</groupId>
+            <artifactId>apache-camel</artifactId>
+            <version>${camel.version}</version>
+            <classifier>features</classifier>
+            <type>xml</type>
+        </dependency>
+        <dependency>
+            <groupId>com.kalix.trying.news</groupId>
+            <artifactId>trying-news-feature</artifactId>
+            <version>${project.version}</version>
+            <classifier>features</classifier>
+            <type>xml</type>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.ops4j.pax.jdbc</groupId>-->
+            <!--<artifactId>pax-jdbc-features</artifactId>-->
+            <!--<version>1.2.0</version>-->
+            <!--<classifier>features</classifier>-->
+            <!--<type>xml</type>-->
+            <!--<scope>runtime</scope>-->
+        <!--</dependency>-->
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/filtered-resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.karaf.tooling</groupId>
+                    <artifactId>karaf-maven-plugin</artifactId>
+                    <version>${karaf.version}</version>
+                    <extensions>true</extensions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>process-resources</id>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>karaf-maven-plugin</artifactId>
+                <configuration>
+                    <installedFeatures>
+                        <feature>wrapper</feature>
+                        <!--<feature>aries-blueprint</feature>-->
+                        <feature>shell-compat</feature>
+                    </installedFeatures>
+                    <startupFeatures>
+                        <feature>eventadmin</feature>
+
+                        <!--<feature>fabric8-karaf-core</feature>-->
+                        <!--<feature>fabric8-karaf-blueprint</feature>-->
+                        <!--<feature>fabric8-karaf-cm</feature>-->
+                        <!--<feature>fabric8-karaf-checks</feature>-->
+                    </startupFeatures>
+                    <bootBundles>
+                        <bootBundle>mvn:org.apache.felix/org.apache.felix.prefs/1.1.0</bootBundle>
+                    </bootBundles>
+                    <bootFeatures>
+                        <feature>wrap</feature>
+                        <feature>aries-blueprint</feature>
+                        <feature>shell</feature>
+                        <feature>feature</feature>
+                        <feature>jaas</feature>
+                        <feature>ssh</feature>
+                        <feature>management</feature>
+                        <feature>bundle</feature>
+                        <feature>config</feature>
+                        <feature>deployer</feature>
+                        <feature>diagnostic</feature>
+                        <feature>feature</feature>
+                        <feature>instance</feature>
+                        <feature>kar</feature>
+                        <feature>log</feature>
+                        <feature>package</feature>
+                        <feature>service</feature>
+                        <feature>system</feature>
+                        <feature>kalix-base</feature>
+                        <feature>kalix-framework</feature>
+                        <feature>framework-webapp</feature>
+                        <feature>trying-news</feature>
+                        <!--<feature>fabric8-karaf-checks</feature>-->
+                        <!--<feature>kalix-all</feature>-->
+                        <!--<feature>framework-all</feature>-->
+                        <!--<feature>admin-all</feature>-->
+                    </bootFeatures>
+                    <bootBundles>
+                        <!--<bootBundle>mvn:net.sf.dozer/dozer-osgi/5.5.1</bootBundle>-->
+                        <!--<bootBundle>mvn:org.postgresql/postgresql/9.4-1202-jdbc41</bootBundle>-->
+                        <!--<bootBundle>mvn:com.kalix.fabric8/biz-service/${project.version}</bootBundle>-->
+                    </bootBundles>
+
+                    <librarys>
+                        <!--library>mvn:org.postgresql/postgresql/9.4-1202-jdbc41</library-->
+                    </librarys>
+                    <javase>1.8</javase>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric8-maven-plugin</artifactId>
+                <version>${fabric8.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>generate-resource</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>resource</goal>
+                        </goals>
+                    </execution>
+                    <!--
+                    <execution>
+                        <id>build-image</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build</goal>
+                            -->
+                            <!--<goal>deploy</goal>-->
+                        <!--
+                        </goals>
+                    </execution>
+                    -->
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>com.kalix.fabric8</groupId>
+        <artifactId>trying</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.kalix.trying.news</groupId>
+    <artifactId>news-parent</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+    <name>Kalix Trying News</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.trying.version>1.0.1-SNAPSHOT</project.trying.version>
+    </properties>
+
+    <modules>
+        <module>trying-news-entities</module>
+        <module>trying-news-api</module>
+        <module>trying-news-dao</module>
+        <module>trying-news-biz</module>
+        <module>trying-news-rest</module>
+        <module>trying-news-feature</module>
+        <module>trying-news-assembly</module>
+    </modules>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.kalix.framework.poms</groupId>
+            <artifactId>framework-poms-dm</artifactId>
+            <type>pom</type>
+            <version>${project.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kalix.framework.core</groupId>
+            <artifactId>framework-core-api</artifactId>
+            <version>${project.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kalix.framework.core</groupId>
+            <artifactId>framework-core-impl</artifactId>
+            <version>${project.framework.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.kalix.trying.news</groupId>
+                <artifactId>trying-news-api</artifactId>
+                <version>${project.trying.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.trying.news</groupId>
+                <artifactId>trying-news-entities</artifactId>
+                <version>${project.trying.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.admin.audit</groupId>
+                <artifactId>admin-audit-biz</artifactId>
+                <version>${project.trying.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.framework.core</groupId>
+                <artifactId>framework-core-restfultest</artifactId>
+                <version>1.0.1-SNAPSHOT</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
