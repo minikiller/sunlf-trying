@@ -18,6 +18,7 @@
         <module>framework-core-api</module>
         <module>framework-core-impl</module>
         <module>framework-core-util</module>
+        <module>framework-core-etc</module>
     </modules>
     <dependencyManagement>
         <dependencies>

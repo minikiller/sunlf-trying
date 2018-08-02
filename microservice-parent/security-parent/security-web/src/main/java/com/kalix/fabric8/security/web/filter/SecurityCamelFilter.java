@@ -88,7 +88,7 @@ public class SecurityCamelFilter implements Filter {
 
     private String checkToken(HttpServletRequest req) {
         String accessToken = "";
-
+/**
         if (req.getHeader("Authorization") != null) {
             accessToken = req.getHeader("Authorization");
             if (accessToken.startsWith("Bearer ")) {
@@ -97,13 +97,13 @@ public class SecurityCamelFilter implements Filter {
                 return "";
             }
         }
+**/
 
-/**
         if (req.getHeader("AccessToken") != null) {
             accessToken = req.getHeader("AccessToken");
             return accessToken;
         }
-
+/**
         if (req.getParameter("AccessToken") != null) {
             accessToken = req.getParameter("AccessToken");
             return accessToken;

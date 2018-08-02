@@ -13,7 +13,6 @@
         <property name="alias" value="/camel/rest"/>
         <property name="httpService" ref="httpService"/>
         <property name="servlet" ref="securityCamelServlet"/>
-        <property name="servletName" value="securityWebServlet"/>
     </bean>
 
     <bean id="securityCamelServlet" class="com.kalix.fabric8.security.web.SecurityCamelServlet">

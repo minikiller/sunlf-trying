@@ -34,7 +34,8 @@ public class TestHTTPRequests extends APITest {
         String uri = getValue("getall.uri");
         APIResponse response = APIRequest.GET(uri)
                 // .header("AccessToken", "JSESSIONID=" + token)
-                .header("Authorization", "Bearer " + accessToken)
+                // .header("Authorization", "Bearer " + accessToken)
+                .header("AccessToken", accessToken)
                 .invoke().assertStatus(200);
         String returnString = response.getBody(String.class);
         JSONObject jsonObject = new JSONObject(returnString);
