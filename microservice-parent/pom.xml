@@ -20,6 +20,7 @@
         <module>jwt-parent</module>
         <module>security-parent</module>
         <module>kongclient-parent</module>
+        <module>cache-parent</module>
         <module>client-rest-test</module>
     </modules>
 

@@ -18,6 +18,7 @@
         <module>kongclient-api</module>
         <module>kongclient-biz</module>
         <module>kongclient-rest</module>
+        <module>kongclient-etc</module>
     </modules>
 
     <dependencyManagement>

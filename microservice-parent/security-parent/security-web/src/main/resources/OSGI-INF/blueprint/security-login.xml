@@ -13,6 +13,7 @@
         <property name="servletName" value="securityLoginServlet"/>
     </bean>
 -->
+    <reference id="cacheManager" interface="com.kalix.fabric8.cache.api.biz.ICacheManager"></reference>
     <bean id="loginCamelServlet" class="com.kalix.fabric8.security.web.LoginCamelServlet">
         <property name="securityService" ref="securityService"/>
     </bean>

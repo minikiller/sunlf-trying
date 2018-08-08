@@ -1,6 +1,5 @@
 package com.kalix.fabric8.security.web.filter;
 
-import com.kalix.framework.core.util.HttpUtil;
 import com.kalix.fabric8.security.api.biz.ISecurityService;
 
 
@@ -54,7 +53,6 @@ public class SecurityCamelFilter implements Filter {
             boolean isIncludeUrl = true;
             if (exceptUrlList != null && exceptUrlList.size() > 0) {
                 for (String exceptUrl : exceptUrlList) {
-                    System.out.println("pathInfo:===========" + req.getPathInfo());
                     if (Pattern.compile(exceptUrl).matcher(req.getPathInfo()).matches()) {
                         isIncludeUrl = false;
                         break;
