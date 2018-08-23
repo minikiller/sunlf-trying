@@ -8,4 +8,6 @@ public interface ISecurityService {
 
     public boolean checkLoginToken(String token);
 
+    public Map<String, Object> getCurrentLoginUser(String token);
+
 }

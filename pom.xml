@@ -22,15 +22,16 @@
         <karaf.version>4.2.0</karaf.version>
         <camel.version>2.21.1</camel.version>
         <!---->
-        <karaf.path>d:/java-develop/tools/apache-karaf-4.2.0-ms</karaf.path>
+        <karaf.path>d:/ms-develop/tools/apache-karaf-4.2.0-ms</karaf.path>
     </properties>
 
     <modules>
         <!--<module>biz-service</module>-->
-        <module>biz-feature</module>
+        <!--<module>biz-feature</module>-->
         <module>biz-etc</module>
         <module>ms-feature</module>
         <module>microservice-parent</module>
+        <module>ms-assembly</module>
         <!--<module>redis-service</module>-->
         <!--<module>news-parent</module>-->
         <!--<module>biz-assembly</module>-->

@@ -31,5 +31,9 @@
             <groupId>com.kalix.fabric8.microservice</groupId>
             <artifactId>user-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.kalix.fabric8.microservice</groupId>
+            <artifactId>cache-api</artifactId>
+        </dependency>
     </dependencies>
 </project>

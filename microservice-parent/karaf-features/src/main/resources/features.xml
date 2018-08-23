@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.4.0"
+          name="kalix-features-microservice-${project.ms.version}">
+    <feature name="microservice-all" version="${project.ms.version}">
+        <feature>microservice-framework</feature>
+        <feature>microservice-jwt</feature>
+        <feature>microservice-cache</feature>
+        <feature>microservice-kongclient</feature>
+        <feature>microservice-security</feature>
+        <feature>microservice-user</feature>
+    </feature>
+
+    <feature name="microservice-framework" version="${project.ms.version}">
+        <configfile finalname="/etc/org.ops4j.datasource-biz.cfg" override="true">
+            mvn:com.kalix.fabric8.microservice/framework-core-etc/${project.ms.version}/cfg/org.ops4j.datasource-biz
+        </configfile>
+        <configfile finalname="/etc/org.ops4j.pax.logging.cfg" override="true">
+            mvn:com.kalix.fabric8.microservice/framework-core-etc/${project.ms.version}/cfg/org.ops4j.pax.logging
+        </configfile>
+        <bundle>mvn:com.kalix.fabric8.microservice/framework-core-api/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/framework-core-impl/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/framework-core-util/${project.ms.version}</bundle>
+    </feature>
+
+    <feature name="microservice-jwt" version="${project.ms.version}">
+        <bundle>mvn:com.kalix.fabric8.microservice/jwt-api/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/jwt-biz/${project.ms.version}</bundle>
+    </feature>
+
+    <feature name="microservice-cache" version="${project.ms.version}">
+        <bundle>mvn:com.kalix.fabric8.microservice/cache-api/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/cache-biz/${project.ms.version}</bundle>
+    </feature>
+
+    <feature name="microservice-kongclient" version="${project.ms.version}">
+        <configfile finalname="/etc/kongclient.cfg" override="true">
+            mvn:com.kalix.fabric8.microservice/kongclient-etc/${project.ms.version}/cfg/kongclient
+        </configfile>
+        <bundle>mvn:com.kalix.fabric8.microservice/kongclient-api/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/kongclient-biz/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/kongclient-rest/${project.ms.version}</bundle>
+    </feature>
+
+    <feature name="microservice-security" version="${project.ms.version}">
+        <bundle>mvn:com.kalix.fabric8.microservice/security-api/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/security-biz/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/security-rest/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/security-web/${project.ms.version}</bundle>
+    </feature>
+
+    <feature name="microservice-user" version="${project.ms.version}">
+        <bundle>mvn:com.kalix.fabric8.microservice/user-entities/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/user-api/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/user-biz/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/user-dao/${project.ms.version}</bundle>
+        <bundle>mvn:com.kalix.fabric8.microservice/user-rest/${project.ms.version}</bundle>
+    </feature>
+
+</features>

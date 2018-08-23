@@ -6,13 +6,12 @@
 
     <parent>
         <groupId>com.kalix.fabric8.microservice</groupId>
-        <artifactId>framework-parent</artifactId>
+        <artifactId>microservice-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>com.kalix.fabric8.microservice</groupId>
-    <artifactId>framework-core-etc</artifactId>
-    <description>ETC</description>
+    <artifactId>karaf-features</artifactId>
     <packaging>pom</packaging>
 
     <build>
@@ -43,9 +42,9 @@
                         <configuration>
                             <artifacts>
                                 <artifact>
-                                    <file>target/classes/org.ops4j.datasource-biz.cfg</file>
-                                    <type>cfg</type>
-                                    <classifier>org.ops4j.datasource-biz</classifier>
+                                    <file>target/classes/features.xml</file>
+                                    <type>xml</type>
+                                    <classifier>features</classifier>
                                 </artifact>
                             </artifacts>
                         </configuration>
