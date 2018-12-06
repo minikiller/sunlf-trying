@@ -5,8 +5,7 @@ import com.kalix.framework.core.api.persistence.PersistentEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -20,7 +19,11 @@ import java.util.Date;
 @Entity
 @Table(name = "trying_news")
 @ApiModel("新闻<br>NewsBean")
-public class NewsBean  {
+public class NewsBean extends PersistentEntity{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "uuid-hex")
+    private String uuid;
+
     @ApiModelProperty("标题")
     private String title;   //标题
     @ApiModelProperty("内容")
@@ -62,6 +65,14 @@ public class NewsBean  {
 
     public void setPublishDate(Date publishDate) {
         this.publishDate = publishDate;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     @Override

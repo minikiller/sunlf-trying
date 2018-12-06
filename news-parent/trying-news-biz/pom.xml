@@ -29,6 +29,11 @@
             <groupId>com.kalix.admin.audit</groupId>
             <artifactId>admin-audit-biz</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.fusesource.mqtt-client</groupId>
+            <artifactId>mqtt-client</artifactId>
+            <version>1.14</version>
+        </dependency>
     </dependencies>
 
     <build>

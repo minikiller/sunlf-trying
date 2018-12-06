@@ -13,4 +13,6 @@ import com.kalix.trying.news.entities.NewsBean;
  */
 public interface INewsBeanService extends IBizService<NewsBean> {
     //在此添加新的业务方法
+    void mqtt_publish(String msg);
+    void mqtt_subscribe(String topic);
 }

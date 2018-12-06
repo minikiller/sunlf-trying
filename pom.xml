@@ -19,10 +19,10 @@
         <project.trying.version>1.0.1-SNAPSHOT</project.trying.version>
         <fabric8.version>3.0.11</fabric8.version>
         <fabric8.maven.plugin.version>3.5.38</fabric8.maven.plugin.version>
-        <karaf.version>4.2.0</karaf.version>
+        <karaf.version>4.2.1</karaf.version>
         <camel.version>2.21.1</camel.version>
         <!---->
-        <karaf.path>d:/java-develop/tools/apache-karaf-4.2.0-ms</karaf.path>
+        <karaf.path>d:/java-develop/tools/apache-karaf-4.2.1</karaf.path>
     </properties>
 
     <modules>
@@ -32,7 +32,7 @@
         <module>ms-feature</module>
         <module>microservice-parent</module>
         <!--<module>redis-service</module>-->
-        <!--<module>news-parent</module>-->
+        <module>news-parent</module>
         <!--<module>biz-assembly</module>-->
     </modules>
 
