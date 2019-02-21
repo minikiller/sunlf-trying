@@ -38,7 +38,7 @@
         <project.trying.version>1.0.1-SNAPSHOT</project.trying.version>
         <fabric8.version>3.0.11</fabric8.version>
         <fabric8.maven.plugin.version>3.5.38</fabric8.maven.plugin.version>
-        <karaf.version>4.2.0</karaf.version>
+        <karaf.version>4.2.2</karaf.version>
         <camel.version>2.21.1</camel.version>
         <!--<camel.version>2.18.2</camel.version>-->
     </properties>

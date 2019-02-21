@@ -19,14 +19,14 @@ import java.util.Date;
 @Entity
 @Table(name = "trying_news")
 @ApiModel("新闻<br>NewsBean")
-public class NewsBean extends PersistentEntity{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "uuid-hex")
-    private String uuid;
-
+public class NewsBean extends PersistentEntity {
     @ApiModelProperty("标题")
     private String title;   //标题
+    @ApiModelProperty("标题1")
+    private String title1;   //标题
     @ApiModelProperty("内容")
+    @Column(name = "my_content", columnDefinition = "myik")
+    @Lob
     private String content; //内容
     @ApiModelProperty(hidden = true)
     private String publishPeople;//发布人
@@ -67,12 +67,12 @@ public class NewsBean extends PersistentEntity{
         this.publishDate = publishDate;
     }
 
-    public String getUuid() {
-        return uuid;
+    public String getTitle1() {
+        return title1;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setTitle1(String title1) {
+        this.title1 = title1;
     }
 
     @Override

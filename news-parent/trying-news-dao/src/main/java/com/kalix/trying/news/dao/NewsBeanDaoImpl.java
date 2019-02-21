@@ -19,6 +19,7 @@ import javax.persistence.PersistenceContext;
 public class NewsBeanDaoImpl extends GenericDao<NewsBean, Long> implements INewsBeanDao {
     @Override
     @PersistenceContext(unitName = "news-cm")
+
     public void setEntityManager(EntityManager em) {
         super.setEntityManager(em);
     }

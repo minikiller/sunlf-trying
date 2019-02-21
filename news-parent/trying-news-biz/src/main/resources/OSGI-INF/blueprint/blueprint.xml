@@ -8,9 +8,14 @@
     <reference id="newsBeanDao" interface="com.kalix.trying.news.api.dao.INewsBeanDao"/>
     <service id="newsBeanService" interface="com.kalix.trying.news.api.biz.INewsBeanService"
              ref="beanServiceImpl"/>
-    <bean id="beanServiceImpl" class="com.kalix.trying.news.biz.NewsBeanServiceImpl" init-method="test">
+    <bean id="beanServiceImpl" class="com.kalix.trying.news.biz.NewsBeanServiceImpl" init-method="init">
         <property name="dao" ref="newsBeanDao"/>
-        <property name="title" value="${title}"/>
     </bean>
+
+    <bean id="newsRoute" class="com.kalix.trying.news.biz.CamelRouter"/>
+
+    <camelContext trace="true" id="newsCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="newsRoute"/>
+    </camelContext>
 </blueprint>
 

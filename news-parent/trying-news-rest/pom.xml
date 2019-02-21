@@ -28,5 +28,10 @@
             <groupId>com.kalix.framework.core</groupId>
             <artifactId>framework-core-restfultest</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.decanter.collector</groupId>
+            <artifactId>org.apache.karaf.decanter.collector.camel</artifactId>
+            <version>2.1.0</version>
+        </dependency>
     </dependencies>
 </project>

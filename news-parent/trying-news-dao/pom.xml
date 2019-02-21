@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>trying-news-dao</artifactId>
-    <name>Kalix Trying DAO</name>
+    <name>Kalix Trying News DAO</name>
     <description>News JPA</description>
     <packaging>bundle</packaging>
 

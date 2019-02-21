@@ -16,14 +16,29 @@
     <!--</bean>-->
 
     <!--<bean id="camelServlet" class="org.apache.camel.component.servlet.CamelHttpTransportServlet"/>-->
+    <!--<reference id="eventAdmin" interface="org.osgi.service.event.EventAdmin"/>-->
 
+    <!--<bean id="traceHandler" class="org.apache.karaf.decanter.collector.camel.DecanterTraceEventHandler">-->
+        <!--<property name="eventAdmin" ref="eventAdmin"/>-->
+        <!--<property name="includeBody" value="true"/>-->
+        <!--<property name="includeProperties" value="true"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="tracer" class="org.apache.camel.processor.interceptor.Tracer">-->
+        <!--<property name="traceHandler" ref="traceHandler"/>-->
+        <!--<property name="enabled" value="true"/>-->
+        <!--<property name="traceOutExchanges" value="true"/>-->
+        <!--<property name="logStackTrace" value="true"/>-->
+        <!--&lt;!&ndash;<property name="logLevel" value="OFF"/>&ndash;&gt;-->
+    <!--</bean>-->
     <reference id="newsService" interface="com.kalix.trying.news.api.biz.INewsBeanService"/>
 
     <bean id="newsRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
         <property name="beanName" value="com.kalix.trying.news.entities.NewsBean"/>
+        <property name="enableTrace" value="true"/>
     </bean>
-    <camelContext id="newsCamel" xmlns="http://camel.apache.org/schema/blueprint">
+    <camelContext trace="true" id="newsCamel" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="newsRoute"/>
-
     </camelContext>
 </blueprint>
+
