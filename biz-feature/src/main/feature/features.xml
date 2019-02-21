@@ -300,7 +300,7 @@
         <!--<bundle start-level="30">mvn:com.kalix.framework.core/framework-core-delegate/${project.framework.version}-->
         <!--</bundle>-->
         <!--<bundle>mvn:com.kalix.framework.core/framework-core-etc/${parent.version}</bundle>-->
-        <!--<bundle start-level="30">mvn:com.kalix.framework.core/framework-core-impl/${project.framework.version}</bundle>-->
+        <!--<bundle start-level="30">mvn:com.kalix.framework.core/framework-core-biz/${project.framework.version}</bundle>-->
         <!--<bundle start-level="30">mvn:com.kalix.framework.core/framework-core-mq/${project.framework.version}</bundle>-->
         <!--<bundle start-level="30">mvn:com.kalix.framework.core/framework-core-rest/${project.framework.version}</bundle>-->
         <!--<bundle>mvn:com.kalix.framework.core/core-restfultest/${parent.version}</bundle>-->

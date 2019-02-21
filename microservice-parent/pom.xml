@@ -11,7 +11,9 @@
     <artifactId>microservice-parent</artifactId>
     <name>Kalix Microservice Parent</name>
     <packaging>pom</packaging>
-
+    <properties>
+        <project.ms.version>1.0-SNAPSHOT</project.ms.version>
+    </properties>
     <modules>
         <!--<module>kongclient-parent</module>-->
         <!--<module>security-parent</module>-->
@@ -20,6 +22,8 @@
         <module>jwt-parent</module>
         <module>security-parent</module>
         <module>kongclient-parent</module>
+        <module>cache-parent</module>
+        <module>karaf-features</module>
         <module>client-rest-test</module>
     </modules>
 

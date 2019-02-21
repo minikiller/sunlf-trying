@@ -28,7 +28,7 @@ public class KongJwtServiceImpl implements IKongJwtService {
     private IJwtService msJwtService;
 
     private Boolean needOauth2 = false;
-    private final String kongConfigName = "ConfigKong";
+    private final String kongConfigName = "kongclient";
     private final String PLUGIN_NAME = "jwt";
 
     private Api api;

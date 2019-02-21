@@ -1,5 +1,7 @@
 package com.kalix.fabric8.kongclient.biz.kong.api.admin;
 
+import com.kalix.fabric8.kongclient.biz.kong.model.admin.aim.Target;
+import com.kalix.fabric8.kongclient.biz.kong.model.admin.aim.TargetList;
 
 /**
  * Created by vaibhav on 13/06/17.

@@ -1,6 +1,5 @@
 package com.kalix.fabric8.security.web.filter;
 
-import com.kalix.framework.core.util.HttpUtil;
 import com.kalix.fabric8.security.api.biz.ISecurityService;
 
 
@@ -54,7 +53,6 @@ public class SecurityCamelFilter implements Filter {
             boolean isIncludeUrl = true;
             if (exceptUrlList != null && exceptUrlList.size() > 0) {
                 for (String exceptUrl : exceptUrlList) {
-                    System.out.println("pathInfo:===========" + req.getPathInfo());
                     if (Pattern.compile(exceptUrl).matcher(req.getPathInfo()).matches()) {
                         isIncludeUrl = false;
                         break;
@@ -88,7 +86,7 @@ public class SecurityCamelFilter implements Filter {
 
     private String checkToken(HttpServletRequest req) {
         String accessToken = "";
-
+/**
         if (req.getHeader("Authorization") != null) {
             accessToken = req.getHeader("Authorization");
             if (accessToken.startsWith("Bearer ")) {
@@ -97,13 +95,13 @@ public class SecurityCamelFilter implements Filter {
                 return "";
             }
         }
+**/
 
-/**
         if (req.getHeader("AccessToken") != null) {
             accessToken = req.getHeader("AccessToken");
             return accessToken;
         }
-
+/**
         if (req.getParameter("AccessToken") != null) {
             accessToken = req.getParameter("AccessToken");
             return accessToken;

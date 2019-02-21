@@ -18,6 +18,7 @@
         <module>framework-core-api</module>
         <module>framework-core-impl</module>
         <module>framework-core-util</module>
+        <module>framework-core-etc</module>
     </modules>
     <dependencyManagement>
         <dependencies>
@@ -133,6 +134,11 @@
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
                 <version>1.2.17</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
