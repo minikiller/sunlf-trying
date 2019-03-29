@@ -8,6 +8,10 @@ import com.kalix.trying.news.api.biz.INewsBeanService;
 import com.kalix.trying.news.api.dao.INewsBeanDao;
 import com.kalix.trying.news.entities.NewsBean;
 import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.osgi.annotation.bundle.Requirement;
+import org.osgi.service.component.annotations.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +24,16 @@ import java.util.List;
  * @修改时间：
  * @修改备注：
  */
+@Component(service = INewsBeanService.class, property = {"osgi.jaxrs.resource=true"})
+
+@Requirement(
+        filter = "(osgi.jaxrs.name=aries.shiro.authc)",
+        namespace = "osgi.service"
+)
+@Requirement(
+        filter = "(osgi.jaxrs.name=aries.shiro.authz)",
+        namespace = "osgi.service"
+)
 public class NewsBeanServiceImpl extends ShiroGenericBizServiceImpl<INewsBeanDao, NewsBean> implements INewsBeanService {
     private String title;
 
@@ -67,8 +81,16 @@ public class NewsBeanServiceImpl extends ShiroGenericBizServiceImpl<INewsBeanDao
     }
 
     @Override
+    @RequiresRoles("testd")
+//    @RequiresAuthentication
     public JsonData getAllEntityByQuery(Integer page, Integer limit, String jsonStr, String sort) {
         return super.getAllEntityByQuery(page, limit, jsonStr, sort);
+    }
+
+    @Override
+    @RequiresRoles("testd")
+    public void doSave(NewsBean entity, JsonStatus jsonStatus) {
+        super.doSave(entity, jsonStatus);
     }
 }
 

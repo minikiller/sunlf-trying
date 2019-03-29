@@ -26,7 +26,7 @@
         <module>trying-news-biz</module>
         <module>trying-news-rest</module>
         <module>trying-news-feature</module>
-        <module>trying-news-assembly</module>
+        <!--<module>trying-news-assembly</module>-->
     </modules>
 
 
