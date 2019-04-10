@@ -33,6 +33,7 @@
         <module>microservice-parent</module>
         <!--<module>redis-service</module>-->
         <module>news-parent</module>
+        <module>event-parent</module>
         <!--<module>biz-assembly</module>-->
     </modules>
 

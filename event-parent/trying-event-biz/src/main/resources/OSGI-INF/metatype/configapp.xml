@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="OSGI-INF/metatype/metatype">
+    <OCD description="Configured Example Application" name="ConfigApp" id="ConfigApp">
+        <AD name="account" id="account" required="true" type="String" default="Default Title" description="%com.kalix.trying.news.biz"/>
+    </OCD>
+    <Designate pid="config.middleware.mail">
+        <Object ocdref="ConfigApp"/>
+    </Designate>
+</metatype:MetaData>
