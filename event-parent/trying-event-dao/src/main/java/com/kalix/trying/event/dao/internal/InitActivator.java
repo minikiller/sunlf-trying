@@ -1,4 +1,4 @@
-package com.kalix.trying.news.dao.internal;
+package com.kalix.trying.event.dao.internal;
 
 import com.kalix.framework.core.api.osgi.BaseBundleActivator;
 

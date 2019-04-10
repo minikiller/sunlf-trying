@@ -1,4 +1,4 @@
-package com.kalix.trying.news.entities.internal;
+package com.kalix.trying.event.entities.internal;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

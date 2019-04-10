@@ -1,19 +1,17 @@
-package com.kalix.trying.news.biz;
+package com.kalix.trying.event.biz;
 
 import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.api.persistence.JsonStatus;
 import com.kalix.framework.core.impl.biz.ShiroGenericBizServiceImpl;
 import com.kalix.framework.core.util.Assert;
-import com.kalix.trying.news.api.biz.INewsBeanService;
-import com.kalix.trying.news.api.dao.INewsBeanDao;
-import com.kalix.trying.news.entities.NewsBean;
+import com.kalix.trying.event.api.biz.IEventBeanService;
+import com.kalix.trying.event.api.dao.IEventBeanDao;
+import com.kalix.trying.event.entities.EventBean;
 import org.apache.commons.lang.StringUtils;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.osgi.annotation.bundle.Requirement;
 import org.osgi.service.component.annotations.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +22,7 @@ import java.util.List;
  * @修改时间：
  * @修改备注：
  */
-@Component(service = INewsBeanService.class, property = {"osgi.jaxrs.resource=true"})
+@Component(service = IEventBeanService.class, property = {"osgi.jaxrs.resource=true"})
 
 @Requirement(
         filter = "(osgi.jaxrs.name=aries.shiro.authc)",
@@ -34,7 +32,7 @@ import java.util.List;
         filter = "(osgi.jaxrs.name=aries.shiro.authz)",
         namespace = "osgi.service"
 )
-public class NewsBeanServiceImpl extends ShiroGenericBizServiceImpl<INewsBeanDao, NewsBean> implements INewsBeanService {
+public class EventBeanServiceImpl extends ShiroGenericBizServiceImpl<IEventBeanDao, EventBean> implements IEventBeanService {
     private String title;
 
     public String getTitle() {
@@ -46,7 +44,7 @@ public class NewsBeanServiceImpl extends ShiroGenericBizServiceImpl<INewsBeanDao
     }
 
     @Override
-    public void beforeSaveEntity(NewsBean entity, JsonStatus status) {
+    public void beforeSaveEntity(EventBean entity, JsonStatus status) {
         String userName = shiroService.getCurrentUserRealName();
         Assert.notNull(userName, "用户名不能为空.");
         if (StringUtils.isNotEmpty(userName)) {
@@ -57,9 +55,9 @@ public class NewsBeanServiceImpl extends ShiroGenericBizServiceImpl<INewsBeanDao
 
     public void init() {
         mqtt_subscribe("sd");
-//        List<NewsBean> listBean=new ArrayList<NewsBean>();
+//        List<EventBean> listBean=new ArrayList<EventBean>();
 //        for(int i=0;i<100;i++){
-//            NewsBean bean=new NewsBean();
+//            EventBean bean=new EventBean();
 //            bean.setContent("is number"+String.valueOf(i));
 //            listBean.add(bean);
 //        }
@@ -75,7 +73,7 @@ public class NewsBeanServiceImpl extends ShiroGenericBizServiceImpl<INewsBeanDao
     @Override
     public void mqtt_subscribe(String topic) {
         String str="SELECT * FROM trying_news WHERE trying_news ==> 'my_content:中国'";
-        List<NewsBean> beans=dao.findByNativeSql(str,NewsBean.class);
+        List<EventBean> beans=dao.findByNativeSql(str, EventBean.class);
         System.out.println(beans);
 
     }
@@ -89,7 +87,7 @@ public class NewsBeanServiceImpl extends ShiroGenericBizServiceImpl<INewsBeanDao
 
     @Override
     @RequiresRoles("testd")
-    public void doSave(NewsBean entity, JsonStatus jsonStatus) {
+    public void doSave(EventBean entity, JsonStatus jsonStatus) {
         super.doSave(entity, jsonStatus);
     }
 }

@@ -1,4 +1,4 @@
-package com.kalix.trying.news.biz;
+package com.kalix.trying.event.biz;
 import java.io.IOException;
 import javax.websocket.ClientEndpoint;
 import javax.websocket.OnError;

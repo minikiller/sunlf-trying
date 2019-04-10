@@ -1,4 +1,4 @@
-package com.kalix.trying.news.entities;
+package com.kalix.trying.event.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.kalix.framework.core.api.persistence.PersistentEntity;
@@ -17,16 +17,14 @@ import java.util.Date;
  * @修改备注：
  */
 @Entity
-@Table(name = "trying_news")
-@ApiModel("新闻<br>NewsBean")
-public class NewsBean extends PersistentEntity {
+@Table(name = "trying_event")
+@ApiModel("新闻<br>EventBean")
+public class EventBean extends PersistentEntity {
     @ApiModelProperty("标题")
     private String title;   //标题
     @ApiModelProperty("标题1")
     private String title1;   //标题
     @ApiModelProperty("内容")
-    @Column(name = "my_content", columnDefinition = "myik")
-    @Lob
     private String content; //内容
     @ApiModelProperty(hidden = true)
     private String publishPeople;//发布人
@@ -77,7 +75,7 @@ public class NewsBean extends PersistentEntity {
 
     @Override
     public String toString() {
-        return "NewsBean{" +
+        return "EventBean{" +
                 "content='" + content + '\'' +
                 ", title='" + title + '\'' +
                 ", publishPeople='" + publishPeople + '\'' +

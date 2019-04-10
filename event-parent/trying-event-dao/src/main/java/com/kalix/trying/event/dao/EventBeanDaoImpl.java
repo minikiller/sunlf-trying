@@ -1,8 +1,9 @@
-package com.kalix.trying.news.dao;
+package com.kalix.trying.event.dao;
 
 import com.kalix.framework.core.impl.dao.GenericDao;
-import com.kalix.trying.news.api.dao.INewsBeanDao;
-import com.kalix.trying.news.entities.NewsBean;
+import com.kalix.trying.event.api.dao.IEventBeanDao;
+import com.kalix.trying.event.entities.EventBean;
+import org.osgi.service.component.annotations.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,9 +17,10 @@ import javax.persistence.PersistenceContext;
  * @修改备注：
  */
 //@Transactional
-public class NewsBeanDaoImpl extends GenericDao<NewsBean, Long> implements INewsBeanDao {
+@Component
+public class EventBeanDaoImpl extends GenericDao<EventBean, Long> implements IEventBeanDao {
     @Override
-    @PersistenceContext(unitName = "news-cm")
+    @PersistenceContext(unitName = "event-cm")
 
     public void setEntityManager(EntityManager em) {
         super.setEntityManager(em);

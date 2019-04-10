@@ -1,4 +1,4 @@
-package com.kalix.trying.news.biz;
+package com.kalix.trying.event.biz;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.language.Bean;

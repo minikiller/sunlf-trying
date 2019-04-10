@@ -3,5 +3,5 @@
 #-----------------------------------------------------------------
 
 Bundle-Activator: ${bundle.namespace}.internal.InitActivator
-Import-Package:javax.persistence,com.kalix.trying.news.dao,*
+Import-Package:javax.persistence,com.kalix.trying.event.dao,*
 Bundle-Category: Kalix Common News

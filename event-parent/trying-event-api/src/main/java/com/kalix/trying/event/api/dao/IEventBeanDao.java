@@ -1,7 +1,7 @@
-package com.kalix.trying.news.api.dao;
+package com.kalix.trying.event.api.dao;
 
 import com.kalix.framework.core.api.dao.IGenericDao;
-import com.kalix.trying.news.entities.NewsBean;
+import com.kalix.trying.event.entities.EventBean;
 
 /**
  * @类描述：DAO接口
@@ -11,6 +11,6 @@ import com.kalix.trying.news.entities.NewsBean;
  * @修改时间：
  * @修改备注：
  */
-public interface INewsBeanDao extends IGenericDao<NewsBean, Long> {
+public interface IEventBeanDao extends IGenericDao<EventBean, Long> {
     //在此添加新的DAO方法
 }

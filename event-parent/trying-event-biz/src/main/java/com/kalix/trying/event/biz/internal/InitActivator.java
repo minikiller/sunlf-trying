@@ -1,4 +1,4 @@
-package com.kalix.trying.news.biz.internal;
+package com.kalix.trying.event.biz.internal;
 
 import com.kalix.framework.core.api.osgi.BaseBundleActivator;
 

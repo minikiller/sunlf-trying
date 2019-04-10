@@ -1,7 +1,7 @@
-package com.kalix.trying.news.api.biz;
+package com.kalix.trying.event.api.biz;
 
 import com.kalix.framework.core.api.biz.IBizService;
-import com.kalix.trying.news.entities.NewsBean;
+import com.kalix.trying.event.entities.EventBean;
 
 /**
  * @类描述：应用服务接口.
@@ -11,7 +11,7 @@ import com.kalix.trying.news.entities.NewsBean;
  * @修改时间：
  * @修改备注：
  */
-public interface INewsBeanService extends IBizService<NewsBean> {
+public interface IEventBeanService extends IBizService<EventBean> {
     //在此添加新的业务方法
     void mqtt_publish(String msg);
     void mqtt_subscribe(String topic);
