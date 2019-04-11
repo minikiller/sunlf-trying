@@ -17,7 +17,6 @@ import javax.persistence.PersistenceContext;
  * @修改备注：
  */
 //@Transactional
-@Component(service = IEventBeanDao.class)
 public class EventBeanDaoImpl extends GenericDao<EventBean, Long> implements IEventBeanDao {
     @Override
     @PersistenceContext(unitName = "event-cm")
